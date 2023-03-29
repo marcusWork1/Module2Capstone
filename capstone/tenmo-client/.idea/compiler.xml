@@ -7,11 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="module-2--capstone-client" />
-        <module name="tenmo-client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="m02-capstone-client" target="11" />
-    </bytecodeTargetLevel>
   </component>
 </project>
