@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -28,7 +35,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../juan-arredondo-student-code/module-2/15_Module_2_API_Review/lecture/java/API-Review-client/pom.xml" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../brent-brown-student-code/module-2/16_Securing_APIs" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Student\workspace\module-2-capstone-team-1\capstone\tenmo-client\src\main\java\com\techelevator\tenmo\model" />
+    </key>
+>>>>>>> bc41524878c23894f1fe933897204e398638d64c
   </component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true">
