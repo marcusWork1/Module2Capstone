@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class ConsoleService {
 
+    // This is for displaying messages
+
     private final Scanner scanner = new Scanner(System.in);
 
     public int promptForMenuSelection(String prompt) {
