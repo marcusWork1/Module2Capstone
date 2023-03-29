@@ -1,16 +1,22 @@
 package com.techelevator.tenmo;
 
+import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.security.model.AuthenticatedUser;
+import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
 import com.techelevator.tenmo.services.AuthenticationService;
 import com.techelevator.tenmo.services.ConsoleService;
+import com.techelevator.tenmo.services.TenmoService;
+
 
 public class App {
 
     private static final String API_BASE_URL = "http://localhost:8080/";
 
     private final ConsoleService consoleService = new ConsoleService();
+    private final TenmoService tenmoService = new TenmoService();
     private final AuthenticationService authenticationService = new AuthenticationService(API_BASE_URL);
+    private final User user = new User();
 
     private AuthenticatedUser currentUser;
 
@@ -86,6 +92,9 @@ public class App {
 
 	private void viewCurrentBalance() {
 		// TODO Auto-generated method stub
+        Account loggedInBalance = null;
+        loggedInBalance = tenmoService.getAccount(user.getId());
+        consoleService.displayBalance(loggedInBalance);
 		
 	}
 
