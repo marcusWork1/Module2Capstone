@@ -98,7 +98,12 @@ public class ConsoleService {
 
     public void displayBalance(Account account) {
 
-        System.out.println("your balance is " + account.getBalance()); // get balance
+     //   if (account != null) {
+            System.out.println("your balance is " + account.getBalance()); // get balance
+     //   } else {
+      //      System.out.println("Account not found");
+     //   }
+
     }
 
 }

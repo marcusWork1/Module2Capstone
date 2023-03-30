@@ -10,16 +10,20 @@ import java.util.List;
 @Component
 public class JDBCaccountDAO implements AccountDAO {
 
-    private JdbcTemplate theServer;
+    private JdbcTemplate theDatabase;
 
+    // constructor with dependency injection format again >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    public JDBCaccountDAO(JdbcTemplate jdbcTemplate) {
+        this.theDatabase = jdbcTemplate;
+    }
 
 
     @Override
     public List<Account> getAllAccounts() {
         List<Account> accounts = new ArrayList<Account>();
-        String sql = "SELECT * FROM account ;";
+        String sql = "SELECT account_id, user_id, balance FROM account ;";
 
-        SqlRowSet results = theServer.queryForRowSet(sql);
+        SqlRowSet results = theDatabase.queryForRowSet(sql);
         while(results.next()) {
             Account accountResult = mapRowToAccount(results);
             accounts.add(accountResult);
@@ -31,7 +35,7 @@ public class JDBCaccountDAO implements AccountDAO {
     public Account getAccount(int id) {
         Account account = null;
         String sql = "SELECT * FROM account WHERE account_id = ? ;";
-        SqlRowSet results = theServer.queryForRowSet(sql, id);
+        SqlRowSet results = theDatabase.queryForRowSet(sql, id);
 
         if (results.next()) {
              account = mapRowToAccount(results);
@@ -56,7 +60,7 @@ public class JDBCaccountDAO implements AccountDAO {
 
         String sql = "SELECT * FROM account WHERE user_id = ? ;";
 
-        SqlRowSet results = theServer.queryForRowSet(sql, id);
+        SqlRowSet results = theDatabase.queryForRowSet(sql, id);
         if (results.next()) {
            account = mapRowToAccount(results);
 

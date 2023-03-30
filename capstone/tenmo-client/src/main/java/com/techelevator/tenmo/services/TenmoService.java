@@ -19,11 +19,11 @@ public class TenmoService {
     // Create method call from API SERVER to get user balance
 
 
-    public Account getAccount(int accountId) {
+    public Account getAccount(int id) {
         Account accountBalance = null;
         try {
             ResponseEntity<Account> response =
-                    theApiServer.exchange(API_BASE_URL + "account/" + accountId,
+                    theApiServer.exchange(API_BASE_URL + "account/" + id,
                             HttpMethod.GET, makeAuthEntity(), Account.class);
             accountBalance = response.getBody();
         } catch (RestClientResponseException | ResourceAccessException e) {
