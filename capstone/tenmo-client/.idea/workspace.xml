@@ -2,18 +2,29 @@
 <project version="4">
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
+<<<<<<< HEAD
   </component>
   <component name="ChangeListManager">
     <list default="true" id="601a73a4-a0b2-4599-8cd4-7f26fb0974de" name="Changes" comment="" />
+=======
+<<<<<<< HEAD
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="37fe12db-9dc1-4fc7-b6c2-5dea464d3a74" name="Changes" comment="" />
+>>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NheUa7l8OHbL6HP2dEr9klaDep" />
+=======
+  <component name="ProjectId" id="2NheT5AqqsGNkFAamNEY84P59uD" />
+>>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -23,7 +34,31 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../tenmo-server" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+=======
+>>>>>>> 93d8e17ad1c265cb8ae510fc54fcf96183de7f06
   </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5fb7d31a-00a3-458a-a881-87dcc4ddae83" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NheO7cBwH0diVq0JQN22E4b3OT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Student/workspace/module-2-capstone-team-1-a/capstone/tenmo-server"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.techelevator.tenmo.App" />
@@ -47,6 +82,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="601a73a4-a0b2-4599-8cd4-7f26fb0974de" name="Changes" comment="" />
       <created>1680120758348</created>
       <option name="number" value="Default" />
@@ -67,4 +103,22 @@
       </configuration>
     </watches-manager>
   </component>
+=======
+<<<<<<< HEAD
+      <changelist id="37fe12db-9dc1-4fc7-b6c2-5dea464d3a74" name="Changes" comment="" />
+      <created>1680120746027</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680120746027</updated>
+=======
+      <changelist id="5fb7d31a-00a3-458a-a881-87dcc4ddae83" name="Changes" comment="" />
+      <created>1680120706924</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680120706924</updated>
+>>>>>>> 93d8e17ad1c265cb8ae510fc54fcf96183de7f06
+    </task>
+    <servers />
+  </component>
+>>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
 </project>

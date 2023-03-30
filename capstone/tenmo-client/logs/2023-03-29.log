@@ -1,6 +1,7 @@
 2023-03-29T15:08:18.5602081 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
 2023-03-29T15:09:14.5932036 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
 2023-03-29T15:11:33.0227668 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+<<<<<<< HEAD
 2023-03-29T17:44:25.5868821 401 : [no body]
 2023-03-29T17:58:09.2481184 401 : [no body]
 2023-03-29T18:01:16.4214615 404 : [{"timestamp":"2023-03-29T22:01:16.414+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/0"}]
@@ -21,3 +22,7 @@
 2023-03-29T23:31:22.0627807 500 : [{"timestamp":"2023-03-30T03:31:22.050+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
 2023-03-29T23:34:04.4309806 500 : [{"timestamp":"2023-03-30T03:34:04.412+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
 2023-03-29T23:37:21.7545453 500 : [{"timestamp":"2023-03-30T03:37:21.734+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/0"}]
+=======
+2023-03-29T18:03:48.188551 404 : [{"timestamp":"2023-03-29T22:03:48.166+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/0"}]
+2023-03-29T18:30:14.8386329 404 : [{"timestamp":"2023-03-29T22:30:14.824+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/0"}]
+>>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
