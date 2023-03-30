@@ -18,19 +18,12 @@ public class TenmoService {
 
     // Create method call from API SERVER to get user balance
 
-<<<<<<< HEAD
-    public Account getAccount(int id) {
-        Account accountBalance = new Account();
-        try {
-            ResponseEntity<Account> response =
-                   theApiServer.exchange(API_BASE_URL + "account/" + id ,
-=======
+
     public Account getAccount(int accountId) {
         Account accountBalance = null;
         try {
             ResponseEntity<Account> response =
                     theApiServer.exchange(API_BASE_URL + "account/" + accountId,
->>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
                             HttpMethod.GET, makeAuthEntity(), Account.class);
             accountBalance = response.getBody();
         } catch (RestClientResponseException | ResourceAccessException e) {
@@ -39,13 +32,6 @@ public class TenmoService {
         return accountBalance;
     }
 
-<<<<<<< HEAD
-    private HttpEntity<Void> makeAuthEntity() {
-        HttpHeaders headers = new HttpHeaders();  // Create an HTTP Header
-       // headers.setBearerAuth(authToken);         // Set the Authorization Bearer to the JWT
-        return new HttpEntity<>(headers);         // Return the header
-    }
-=======
     private HttpEntity<Void> makeAuthEntity() {   // helper method
         HttpHeaders headers = new HttpHeaders();  // Create an HTTP Header
      //   headers.setBearerAuth(authToken);       // Set the Authorization Bearer to the JWT
@@ -58,7 +44,7 @@ public class TenmoService {
 //
 //        accountBalance = response.getBody();
   //  }
->>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
+
 
 
 
