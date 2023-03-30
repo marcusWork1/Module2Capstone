@@ -1,3 +1,23 @@
 2023-03-29T15:08:18.5602081 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
 2023-03-29T15:09:14.5932036 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
 2023-03-29T15:11:33.0227668 I/O error on POST request for "http://localhost:8080/register": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2023-03-29T17:44:25.5868821 401 : [no body]
+2023-03-29T17:58:09.2481184 401 : [no body]
+2023-03-29T18:01:16.4214615 404 : [{"timestamp":"2023-03-29T22:01:16.414+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/0"}]
+2023-03-29T18:09:52.5002186 404 : [{"timestamp":"2023-03-29T22:09:52.487+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/0"}]
+2023-03-29T18:29:37.3800544 404 : [{"timestamp":"2023-03-29T22:29:37.368+00:00","status":404,"error":"Not Found","message":"No message available","path":"/account/1001"}]
+2023-03-29T19:40:28.8218158 401 : [{"timestamp":"2023-03-29T23:40:28.803+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T19:54:10.0488084 401 : [{"timestamp":"2023-03-29T23:54:10.023+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T20:00:44.7325912 401 : [{"timestamp":"2023-03-30T00:00:44.718+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T20:13:12.4180929 401 : [{"timestamp":"2023-03-30T00:13:12.399+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T20:16:42.4330631 401 : [{"timestamp":"2023-03-30T00:16:42.411+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T20:24:18.7624213 401 : [{"timestamp":"2023-03-30T00:24:18.748+00:00","status":401,"error":"Unauthorized","message":"Full authentication is required to access this resource","path":"/account/1001"}]
+2023-03-29T20:58:45.1731817 500 : [{"timestamp":"2023-03-30T00:58:45.160+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/0"}]
+2023-03-29T20:59:26.8234194 500 : [{"timestamp":"2023-03-30T00:59:26.809+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/0"}]
+2023-03-29T21:01:06.4083225 500 : [{"timestamp":"2023-03-30T01:01:06.395+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/0"}]
+2023-03-29T22:40:37.8793581 I/O error on POST request for "http://localhost:8080/login": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+2023-03-29T23:03:22.9262587 500 : [{"timestamp":"2023-03-30T03:03:22.902+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
+2023-03-29T23:31:01.5129542 500 : [{"timestamp":"2023-03-30T03:31:01.495+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
+2023-03-29T23:31:22.0627807 500 : [{"timestamp":"2023-03-30T03:31:22.050+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
+2023-03-29T23:34:04.4309806 500 : [{"timestamp":"2023-03-30T03:34:04.412+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/1001"}]
+2023-03-29T23:37:21.7545453 500 : [{"timestamp":"2023-03-30T03:37:21.734+00:00","status":500,"error":"Internal Server Error","message":"No message available","path":"/account/0"}]

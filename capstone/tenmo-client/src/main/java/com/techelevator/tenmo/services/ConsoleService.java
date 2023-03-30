@@ -1,13 +1,18 @@
 package com.techelevator.tenmo.services;
 
 
+import com.techelevator.tenmo.model.Account;
+import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
+import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class ConsoleService {
 
+
+    private final Account account = new Account();
     // This is for displaying messages
 
     private final Scanner scanner = new Scanner(System.in);
@@ -90,4 +95,10 @@ public class ConsoleService {
         System.out.println("An error occurred. Check the log for details.");
     }
 
+    // add method to display balance
+
+    public void displayBalance(Account account) {
+
+        System.out.println("your balance is " + account.getBalance() ); // get balance
+    }
 }

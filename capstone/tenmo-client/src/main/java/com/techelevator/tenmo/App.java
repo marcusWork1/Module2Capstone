@@ -1,17 +1,27 @@
 package com.techelevator.tenmo;
 
+import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.security.model.AuthenticatedUser;
+import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
 import com.techelevator.tenmo.services.AuthenticationService;
 import com.techelevator.tenmo.services.ConsoleService;
+import com.techelevator.tenmo.services.TenmoService;
+import org.springframework.web.client.RestTemplate;
+
+import java.text.NumberFormat;
 
 public class App {
 
     private static final String API_BASE_URL = "http://localhost:8080/";
 
+    private final TenmoService tenmoService = new TenmoService();
     private final ConsoleService consoleService = new ConsoleService();
     private final AuthenticationService authenticationService = new AuthenticationService(API_BASE_URL);
-
+   // private final RestTemplate theApiServer = new RestTemplate();
+   //
+   // private final Account account = new Account();
+private final User user = new User();
     private AuthenticatedUser currentUser;
 
     public static void main(String[] args) {
@@ -86,8 +96,18 @@ public class App {
 
 	private void viewCurrentBalance() {
 		// TODO Auto-generated method stub
-		
-	}
+        User user = currentUser.getUser();
+
+            Account loggedInBalance = tenmoService.getAccount(user.getId()); // instantiated object
+        consoleService.displayBalance(loggedInBalance);
+
+        }
+
+       //Account account = theApiServer.getForObject(API_BASE_URL + "account/" + user.getId(), Account.class );
+
+
+
+
 
 	private void viewTransferHistory() {
 		// TODO Auto-generated method stub
