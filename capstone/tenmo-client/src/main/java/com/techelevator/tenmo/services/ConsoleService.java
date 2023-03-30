@@ -2,10 +2,6 @@ package com.techelevator.tenmo.services;
 
 
 import com.techelevator.tenmo.model.Account;
-<<<<<<< HEAD
-import com.techelevator.tenmo.security.model.User;
-=======
->>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
 import com.techelevator.tenmo.security.model.UserCredentials;
 import org.springframework.http.ResponseEntity;
 
@@ -98,16 +94,11 @@ public class ConsoleService {
         System.out.println("An error occurred. Check the log for details.");
     }
 
-<<<<<<< HEAD
     // add method to display balance
 
     public void displayBalance(Account account) {
 
-        System.out.println("your balance is " + account.getBalance() ); // get balance
-=======
-    // Add method to display balance on console service
-    public void displayBalance(Account account){
-        System.out.println("Your account balance is: " + account.getBalance());  // get balance
->>>>>>> 8693167b4ad5464395ed7335d9bb43495c9100a3
+        System.out.println("your balance is " + account.getBalance()); // get balance
     }
+
 }
