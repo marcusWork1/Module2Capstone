@@ -12,7 +12,6 @@ import org.springframework.web.client.RestTemplate;
 
 import java.text.NumberFormat;
 
-
 public class App {
 
     private static final String API_BASE_URL = "http://localhost:8080/";
@@ -21,8 +20,12 @@ public class App {
     private final ConsoleService consoleService = new ConsoleService();
     private final AuthenticationService authenticationService = new AuthenticationService(API_BASE_URL);
 
+
    // private final Account account = new Account();
     private final User user = new User();
+
+
+   // private final RestTemplate theApiServer = new RestTemplate();
 
     private AuthenticatedUser currentUser;
 
@@ -97,14 +100,16 @@ public class App {
     }
 
 	private void viewCurrentBalance() {
-        // TODO Auto-generated method stub
 
         User user = currentUser.getUser();
 
         Account loggedInBalance = tenmoService.getAccount(user.getId()); // instantiated object
         consoleService.displayBalance(loggedInBalance);
 
-    }
+        }
+
+       //Account account = theApiServer.getForObject(API_BASE_URL + "account/" + user.getId(), Account.class );
+
 
 	private void viewTransferHistory() {
 		// TODO Auto-generated method stub
