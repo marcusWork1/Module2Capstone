@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface Tenmo_userDAO {
 
-    public List<User> getAllUsers();
+    public List<Tenmo_user> getAllUsers();
 
-    public User getUser(int id); // user by userID
+    public Tenmo_user getUser(int id); // user by userID
 
-    public User getUserByName(String username);
+    public Tenmo_user getUserByName(String username);
 
-    public User getRole(String role);
+    public Tenmo_user getRole(String role);
 
     //public User alterPassword(String password);
 
