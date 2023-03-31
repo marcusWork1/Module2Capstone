@@ -66,18 +66,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/techelevator/tenmo/services/ConsoleService.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/techelevator/tenmo/services/TenmoService.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/techelevator/tenmo/App.java</url>
-          <line>104</line>
+          <line>105</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>

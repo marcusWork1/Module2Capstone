@@ -1,6 +1,7 @@
 package com.techelevator.tenmo;
 
 import com.techelevator.tenmo.model.Account;
+import com.techelevator.tenmo.model.Tenmo_user;
 import com.techelevator.tenmo.security.model.AuthenticatedUser;
 import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
@@ -126,7 +127,13 @@ public class App {
 
 	private void sendBucks() {
 		// TODO Auto-generated method stub
-		
+        Tenmo_user[] tenmo_users = tenmoService.allUsers();
+        if (tenmo_users != null) {
+            consoleService.promptForUser(tenmo_users);
+        } else {
+            consoleService.printErrorMessage();
+        }
+        consoleService.promptForInt(prompt);
 	}
 
 	private void requestBucks() {

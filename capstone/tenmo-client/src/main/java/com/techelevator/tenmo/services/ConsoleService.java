@@ -2,6 +2,8 @@ package com.techelevator.tenmo.services;
 
 
 import com.techelevator.tenmo.model.Account;
+import com.techelevator.tenmo.model.Tenmo_user;
+import com.techelevator.tenmo.model.Transfer;
 import com.techelevator.tenmo.security.model.UserCredentials;
 import org.springframework.http.ResponseEntity;
 
@@ -64,12 +66,13 @@ public class ConsoleService {
     }
 
     public int promptForInt(String prompt) {
+        System.out.println("Please enter a User ID");
         System.out.print(prompt);
         while (true) {
             try {
                 return Integer.parseInt(scanner.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a number.");
+                System.out.println("Please enter a User ID");
             }
         }
     }
@@ -95,7 +98,6 @@ public class ConsoleService {
     }
 
     // add method to display balance
-
     public void displayBalance(Account account) {
 
      //   if (account != null) {
@@ -105,5 +107,32 @@ public class ConsoleService {
      //   }
 
     }
+    public void promptForUser(Tenmo_user[] tenmoUser) {
+// display users
+        System.out.println("Select a user ID to send money to(You cannot select yourself");
+        for (Tenmo_user tenmo_user : tenmoUser) {
+            System.out.println(tenmo_user.toString());
+        }
+            System.out.println();
 
-}
+    }
+//    public void selectAmount(Account account) {
+//        //scanner input to collect ID
+//        scanner.nextLine();
+//
+//        //create variable
+//
+//        System.out.println("Enter an amount to send");
+//        // collect information turn into double
+//    }
+//    public void printReservationMenu(Reservation[] reservations) {
+//        System.out.println("--------------------------------------------");
+//        System.out.println("Reservations");
+//        System.out.println("--------------------------------------------");
+//        System.out.println("0. Exit");
+//        for (Reservation reservation : reservations) {
+//            System.out.println(reservation.toString());
+//        }
+//        System.out.println();
+    }
+
