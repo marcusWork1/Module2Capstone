@@ -97,7 +97,6 @@ public class ConsoleService {
     // add method to display balance
 
     public void displayBalance(Account account) {
-
         System.out.println("your balance is " + account.getBalance()); // get balance
     }
 

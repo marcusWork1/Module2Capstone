@@ -20,7 +20,7 @@ public class TenmoService {
 
 
     public Account getAccount(int accountId) {
-        Account accountBalance = null;
+        Account accountBalance = new Account();
         try {
             ResponseEntity<Account> response =
                     theApiServer.exchange(API_BASE_URL + "account/" + accountId,

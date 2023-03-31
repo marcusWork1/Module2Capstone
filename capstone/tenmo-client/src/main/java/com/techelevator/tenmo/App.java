@@ -100,11 +100,8 @@ public class App {
     }
 
 	private void viewCurrentBalance() {
-
-        User user = currentUser.getUser();
-
-        Account loggedInBalance = tenmoService.getAccount(user.getId()); // instantiated object
-        consoleService.displayBalance(loggedInBalance);
+        Account anAccount = tenmoService.getAccount(user.getId());
+        consoleService.displayBalance(anAccount);
 
         }
 
