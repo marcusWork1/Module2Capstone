@@ -3,15 +3,14 @@ package com.techelevator.tenmo.controller;
 import com.techelevator.tenmo.datasource.Account;
 import com.techelevator.tenmo.datasource.AccountDAO;
 import com.techelevator.tenmo.datasource.JDBCaccountDAO;
+import com.techelevator.tenmo.datasource.Transfer;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.annotation.security.PermitAll;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -45,6 +44,18 @@ public class AccountController {
         }
         return account;
     }
+
+    @RequestMapping(path = "/account/{id}", method = RequestMethod.PUT)
+    public Account updateAccount (@Valid @RequestBody Account theAccount,
+                                     @PathVariable int id) {
+        Account theUpdatedAccount;
+        theUpdatedAccount = accountDAO.updateBalance(theAccount);
+
+        return theUpdatedAccount;
+    }
+
+
+
 
 //    @RequestMapping(path = "/account/{id}", method = RequestMethod.GET)
 //    public Account getAccountById(@PathVariable int id) {

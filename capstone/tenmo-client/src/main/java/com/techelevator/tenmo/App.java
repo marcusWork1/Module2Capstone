@@ -2,6 +2,7 @@ package com.techelevator.tenmo;
 
 import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.Tenmo_user;
+import com.techelevator.tenmo.model.Transfer;
 import com.techelevator.tenmo.security.model.AuthenticatedUser;
 import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
@@ -133,7 +134,19 @@ public class App {
         } else {
             consoleService.printErrorMessage();
         }
-        consoleService.promptForInt()
+       consoleService.promptForInt("\"Please enter a User ID\" ");
+
+        // creating a transfer
+        if (currentUser.getUser().getId() != consoleService.collectInfo()) {
+
+            consoleService.promptForBigDecimal("How much would you like to send?");
+            // create transfer
+            tenmoService.createTransfer(new Transfer());
+        } else {
+            System.out.println("We told you not to select yourself, try again chump.");
+        }
+
+
 	}
 
 	private void requestBucks() {

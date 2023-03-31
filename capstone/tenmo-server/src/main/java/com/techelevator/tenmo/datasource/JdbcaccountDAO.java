@@ -46,14 +46,22 @@ public class JDBCaccountDAO implements AccountDAO {
     }
 
     @Override
-    public Account addBalance(int id, BigDecimal amount) { // .update
-        return null;
+    public Account updateBalance(Account updatedAccount) { // .update
+
+        String sql = "UPDATE account SET balance = ? WHERE user_id = ? ;";
+
+       theDatabase.update(sql , updatedAccount.getBalance(), updatedAccount.getId());
+
+       return getAccount(updatedAccount.getId());
     }
 
-    @Override
-    public Account subtractBalance(int id, BigDecimal amount) { //.update
-        return null;
-    }
+//    @Override
+//    public Account subtractBalance(int id, BigDecimal amount) { //.update
+//
+//
+//
+//        return null;
+//    }
 
     @Override
     public Account getAccountByUserId(int id) {

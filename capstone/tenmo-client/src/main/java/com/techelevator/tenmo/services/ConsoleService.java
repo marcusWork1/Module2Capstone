@@ -14,6 +14,9 @@ public class ConsoleService {
 
 
     private final Account account = new Account();
+    private int userIdToSendTo;
+    private BigDecimal amountSent;
+
     // This is for displaying messages
 
     private final Scanner scanner = new Scanner(System.in);
@@ -66,22 +69,30 @@ public class ConsoleService {
     }
 
     public int promptForInt(String prompt) {
-        System.out.println("Please enter a User ID");
         System.out.print(prompt);
         while (true) {
             try {
-                return Integer.parseInt(scanner.nextLine());
+               // System.out.println(Integer.parseInt(scanner.nextLine())); test to see if we are collecting userID entered
+                userIdToSendTo = Integer.parseInt(scanner.nextLine());
+                return userIdToSendTo;
+
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a User ID");
+                System.out.println(prompt); // this was "please enter number"
             }
         }
+    }
+
+    public int collectInfo() {
+         return userIdToSendTo;
     }
 
     public BigDecimal promptForBigDecimal(String prompt) {
         System.out.print(prompt);
         while (true) {
             try {
-                return new BigDecimal(scanner.nextLine());
+                // System.out.println(BigDecimal(scanner.nextLine()));
+                amountSent = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
+                return amountSent;
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a decimal number.");
             }
@@ -109,7 +120,7 @@ public class ConsoleService {
     }
     public void promptForUser(Tenmo_user[] tenmoUser) {
 // display users
-        System.out.println("Select a user ID to send money to(You cannot select yourself");
+        System.out.println("Select a user ID to send money to (You cannot select yourself)");
         for (Tenmo_user tenmo_user : tenmoUser) {
             System.out.println(tenmo_user.toString());
         }

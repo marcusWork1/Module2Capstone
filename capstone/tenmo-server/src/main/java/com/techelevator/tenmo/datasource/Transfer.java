@@ -1,5 +1,7 @@
 package com.techelevator.tenmo.datasource;
 
+import java.math.BigDecimal;
+
 // this also a plain old java object
 public class Transfer {
 
@@ -8,7 +10,7 @@ public class Transfer {
     private int statusId;
     private int accountFrom;
     private int account_to;
-    private double amount;
+    private BigDecimal amount;
 
     public int getTransferId() {
         return transferId;
@@ -50,11 +52,11 @@ public class Transfer {
         this.account_to = account_to;
     }
 
-    public double getAmount() {
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 

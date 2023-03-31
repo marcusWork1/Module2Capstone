@@ -1,22 +1,24 @@
 package com.techelevator.tenmo.services;
 
+import com.techelevator.tenmo.App;
 import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.Tenmo_user;
+import com.techelevator.tenmo.model.Transfer;
 import com.techelevator.util.BasicLogger;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TenmoService {
 
     public String API_BASE_URL = "http://localhost:8080/";
+    private String authToken = null;
 
     RestTemplate theApiServer = new RestTemplate();
 
@@ -47,6 +49,30 @@ public class TenmoService {
         }
         return aUser;
         }
+
+
+         // create a transfer
+    public Transfer createTransfer(Transfer newTransfer){
+        // maybe add a .getBody
+Transfer transferCreated =  null;
+try {
+   transferCreated = theApiServer.postForObject(API_BASE_URL + "transfer/",
+           makeTransferEntity(newTransfer), Transfer.class);
+} catch (RestClientResponseException | ResourceAccessException e) {
+    BasicLogger.log(e.getMessage());
+}
+        return newTransfer;
+    }
+
+
+
+    private HttpEntity<Transfer> makeTransferEntity(Transfer transfer) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+    //    headers.setBearerAuth(authToken);
+        return new HttpEntity<>(transfer, headers);
+    }
+
 
 
     private HttpEntity<Void> makeAuthEntity() {   // helper method
