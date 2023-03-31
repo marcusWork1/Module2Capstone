@@ -133,7 +133,7 @@ public class App {
         } else {
             consoleService.printErrorMessage();
         }
-        consoleService.promptForInt(prompt);
+        consoleService.promptForInt()
 	}
 
 	private void requestBucks() {

@@ -33,6 +33,8 @@ public class AccountController {
     }
 
 
+
+
     @RequestMapping(path = "/account/{id}", method = RequestMethod.GET)
     public Account getAccount(@PathVariable int id) {
         Account account = accountDAO.getAccountByUserId(id);
@@ -54,4 +56,5 @@ public class AccountController {
 //        }
 //        return account;
 //    }
+
 }// end of controller
