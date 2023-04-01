@@ -4,14 +4,13 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Component
 public class JDBCtransferDAO implements TransferDAO {
 
     //attributes
-    JdbcTemplate theDatabase = new JdbcTemplate();
+    private JdbcTemplate theDatabase;
     //constructor with dependency injection
     public JDBCtransferDAO(JdbcTemplate jdbcTemplate) {this.theDatabase = jdbcTemplate;}
 
@@ -40,14 +39,12 @@ public class JDBCtransferDAO implements TransferDAO {
 
     @Override
     //public Transfer createTransfer(int user1, int user2, BigDecimal amount) {
-    public Transfer createTransfer(Account sender, Account receiver, Transfer amount) {
+    public Transfer createTransfer(TransferDTO transfer) {
        // Transfer newTransfer = new Transfer();
 
-        String sql = "INSERT INTO transfer (account_from, account_to, amount) " +
-                "VALUES ( ? , ? , ?) RETURNING transfer_id;";
-        int id = theDatabase.update(sql, int.class, sender.getId(), receiver.getId(), amount.getAmount());
-
-
+        String sql = "INSERT INTO transfer (transfer_type_id, transfer_status_id, account_from, account_to, amount) " +
+                "VALUES ( ?, ?, ?, ?, ?) RETURNING transfer_id;";
+        Integer id = theDatabase.update(sql, Integer.class, transfer.getTransferType(), transfer.getTransferStatus(), transfer.getFromAccount().getId(), transfer.getToAccount().getId(), transfer.getAmount());
 
         return getTransferById(id);
 
@@ -67,6 +64,7 @@ public class JDBCtransferDAO implements TransferDAO {
         transfer.setAccount_to(results.getInt("account_to"));
         transfer.setAccountFrom(results.getInt("account_from"));
         transfer.setAmount(results.getBigDecimal("amount"));
+        transfer.setStatusId(results.getInt("transfer_status_id"));
 
         return transfer;
     }

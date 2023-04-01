@@ -9,7 +9,7 @@ public interface TransferDAO {
 
     public List<Transfer> transferList(int id); // all transfers that have happened
 
-    public Transfer createTransfer(Account account, Account account);
+    public Transfer createTransfer(TransferDTO transfer);
     // takes in both user ids
     // use user id to get account id
     // use account id's to create transfer rows

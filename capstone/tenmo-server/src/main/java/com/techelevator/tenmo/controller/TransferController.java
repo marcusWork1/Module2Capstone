@@ -1,9 +1,6 @@
 package com.techelevator.tenmo.controller;
 
-import com.techelevator.tenmo.datasource.Account;
-import com.techelevator.tenmo.datasource.AccountDAO;
-import com.techelevator.tenmo.datasource.Transfer;
-import com.techelevator.tenmo.datasource.TransferDAO;
+import com.techelevator.tenmo.datasource.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -17,7 +14,9 @@ public class TransferController {
     public TransferController(TransferDAO aTransferDao, AccountDAO anAccountDAO) {this.transferDAO = aTransferDao; this.accountDAO = anAccountDAO;}
 
     @RequestMapping(path = "/transfer", method = RequestMethod.POST)
-        public Transfer transferCreate(@Valid @RequestBody Transfer aTransfer ) {
+        public Transfer transferCreate(@Valid @RequestBody TransferDTO aTransfer ) {
+        accountDAO.updateBalance(aTransfer.getToAccount());
+        accountDAO.updateBalance(aTransfer.getFromAccount());
         return transferDAO.createTransfer(aTransfer);
     }
 

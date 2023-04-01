@@ -3,6 +3,7 @@ package com.techelevator.tenmo;
 import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.Tenmo_user;
 import com.techelevator.tenmo.model.Transfer;
+import com.techelevator.tenmo.model.TransferDTO;
 import com.techelevator.tenmo.security.model.AuthenticatedUser;
 import com.techelevator.tenmo.security.model.User;
 import com.techelevator.tenmo.security.model.UserCredentials;
@@ -12,6 +13,7 @@ import com.techelevator.tenmo.services.TenmoService;
 
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.text.NumberFormat;
 
 public class App {
@@ -128,20 +130,30 @@ public class App {
 
 	private void sendBucks() {
 		// TODO Auto-generated method stub
+
+
         Tenmo_user[] tenmo_users = tenmoService.allUsers();
         if (tenmo_users != null) {
             consoleService.promptForUser(tenmo_users);
         } else {
             consoleService.printErrorMessage();
         }
-       consoleService.promptForInt("\"Please enter a User ID\" ");
+       int toID = consoleService.promptForInt("\"Please enter a User ID\" ");
 
         // creating a transfer
-        if (currentUser.getUser().getId() != consoleService.collectInfo()) {
+        if (currentUser.getUser().getId() != toID) {
 
-            consoleService.promptForBigDecimal("How much would you like to send?");
+            Account senderAccount = tenmoService.getAccount(currentUser.getUser().getId());
+            Account receivingAccount = tenmoService.getAccount(toID);
+
+           BigDecimal transferAmount = consoleService.promptForBigDecimal("How much would you like to send?");
             // create transfer
-            tenmoService.createTransfer(new Transfer());
+            TransferDTO transferData = new TransferDTO();
+            transferData.setFromAccount(senderAccount);
+            transferData.setToAccount(receivingAccount);
+            transferData.setAmount(transferAmount);
+
+            tenmoService.createTransfer(transferData.getFromAccount(), transferData.getToAccount(), transferData.getAmount());
         } else {
             System.out.println("We told you not to select yourself, try again chump.");
         }

@@ -4,6 +4,7 @@ import com.techelevator.tenmo.App;
 import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.Tenmo_user;
 import com.techelevator.tenmo.model.Transfer;
+import com.techelevator.tenmo.model.TransferDTO;
 import com.techelevator.util.BasicLogger;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,21 +53,35 @@ public class TenmoService {
 
 
          // create a transfer
-    public Transfer createTransfer(Transfer newTransfer){
+    public Transfer createTransfer(Account fromAccount, Account toAccount, BigDecimal amount){
         // maybe add a .getBody
-Transfer transferCreated =  null;
-try {
-   transferCreated = theApiServer.postForObject(API_BASE_URL + "transfer/",
-           makeTransferEntity(newTransfer), Transfer.class);
-} catch (RestClientResponseException | ResourceAccessException e) {
-    BasicLogger.log(e.getMessage());
-}
-        return newTransfer;
+        TransferDTO transferData =  new TransferDTO();
+
+        fromAccount.setBalance(fromAccount.getBalance().subtract(amount));
+        toAccount.setBalance(toAccount.getBalance().add(amount));
+
+
+        transferData.setToAccount(toAccount);
+        transferData.setFromAccount(fromAccount);
+        transferData.setAmount(amount);
+        transferData.setTransferStatus(2);
+        transferData.setTransferType(2);
+
+
+        Transfer createATransfer = null;
+
+        try {
+           createATransfer = theApiServer.postForObject(API_BASE_URL + "transfer/",
+                   makeTransferDTOEntity(transferData), Transfer.class);
+        } catch (RestClientResponseException | ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+        return createATransfer;
     }
 
 
 
-    private HttpEntity<Transfer> makeTransferEntity(Transfer transfer) {
+    private HttpEntity<TransferDTO> makeTransferDTOEntity(TransferDTO transfer) {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
     //    headers.setBearerAuth(authToken);

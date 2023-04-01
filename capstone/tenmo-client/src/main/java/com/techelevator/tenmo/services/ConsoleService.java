@@ -14,7 +14,6 @@ public class ConsoleService {
 
 
     private final Account account = new Account();
-    private int userIdToSendTo;
     private BigDecimal amountSent;
 
     // This is for displaying messages
@@ -73,8 +72,8 @@ public class ConsoleService {
         while (true) {
             try {
                // System.out.println(Integer.parseInt(scanner.nextLine())); test to see if we are collecting userID entered
-                userIdToSendTo = Integer.parseInt(scanner.nextLine());
-                return userIdToSendTo;
+                return Integer.parseInt(scanner.nextLine());
+
 
             } catch (NumberFormatException e) {
                 System.out.println(prompt); // this was "please enter number"
@@ -82,17 +81,13 @@ public class ConsoleService {
         }
     }
 
-    public int collectInfo() {
-         return userIdToSendTo;
-    }
-
     public BigDecimal promptForBigDecimal(String prompt) {
         System.out.print(prompt);
         while (true) {
             try {
                 // System.out.println(BigDecimal(scanner.nextLine()));
-                amountSent = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
-                return amountSent;
+              return BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
+
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a decimal number.");
             }
@@ -127,6 +122,7 @@ public class ConsoleService {
             System.out.println();
 
     }
+
 //    public void selectAmount(Account account) {
 //        //scanner input to collect ID
 //        scanner.nextLine();
