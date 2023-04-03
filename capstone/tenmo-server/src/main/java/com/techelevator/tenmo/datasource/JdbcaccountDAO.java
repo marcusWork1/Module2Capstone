@@ -25,7 +25,7 @@ public class JDBCaccountDAO implements AccountDAO {
         String sql = "SELECT account_id, user_id, balance FROM account ;";
 
         SqlRowSet results = theDatabase.queryForRowSet(sql);
-        while(results.next()) {
+        while (results.next()) {
             Account accountResult = mapRowToAccount(results);
             accounts.add(accountResult);
         }
@@ -39,7 +39,7 @@ public class JDBCaccountDAO implements AccountDAO {
         SqlRowSet results = theDatabase.queryForRowSet(sql, id);
 
         if (results.next()) {
-             account = mapRowToAccount(results);
+            account = mapRowToAccount(results);
 
         }
         return account;
@@ -48,20 +48,12 @@ public class JDBCaccountDAO implements AccountDAO {
     @Override
     public Account updateBalance(Account updatedAccount) { // .update
 
-        String sql = "UPDATE account SET balance = ? WHERE user_id = ? ;";
+        String sql = "UPDATE account SET balance = ? WHERE account_id = ? ;";
 
-       theDatabase.update(sql , updatedAccount.getBalance(), updatedAccount.getId());
+        theDatabase.update(sql, updatedAccount.getBalance(), updatedAccount.getId());
 
-       return getAccount(updatedAccount.getId());
+        return getAccount(updatedAccount.getId());
     }
-
-//    @Override
-//    public Account subtractBalance(int id, BigDecimal amount) { //.update
-//
-//
-//
-//        return null;
-//    }
 
     @Override
     public Account getAccountByUserId(int id) {

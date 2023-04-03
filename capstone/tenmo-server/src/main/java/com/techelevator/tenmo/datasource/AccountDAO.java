@@ -8,7 +8,7 @@ public interface AccountDAO {
 
 
 
-    List<Account> getAllAccounts();
+    public List<Account> getAllAccounts();
 
     public Account  getAccount(int id);
 
@@ -18,11 +18,8 @@ public interface AccountDAO {
 
     public Account getAccountByUserId(int id);
 
-   // public List<Account> getAllAccounts();
-
    // public Account getAccountById(int id);
 
     // public boolean checkValidTransfer(int id, double amount);
-
 
 }

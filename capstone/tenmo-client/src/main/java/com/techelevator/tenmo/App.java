@@ -104,18 +104,12 @@ public class App {
     }
 
 	private void viewCurrentBalance() {
-
-        //User user = currentUser.getUser();
-       // System.out.println(user.getId()); // test method for debugging
-        //System.out.println(currentUser.getUser().getId()); // test method for debugging
-        //Account account = tenmoService.getAccount(user.getId());
         Account account = tenmoService.getAccount(currentUser.getUser().getId());
         // instantiated object
-        consoleService.displayBalance(account);
+
+            consoleService.displayBalance(account);
 
         }
-
-       //Account account = theApiServer.getForObject(API_BASE_URL + "account/" + user.getId(), Account.class );
 
 
 	private void viewTransferHistory() {
@@ -146,14 +140,25 @@ public class App {
             Account senderAccount = tenmoService.getAccount(currentUser.getUser().getId());
             Account receivingAccount = tenmoService.getAccount(toID);
 
-           BigDecimal transferAmount = consoleService.promptForBigDecimal("How much would you like to send?");
+           BigDecimal transferAmount = consoleService.promptForBigDecimal("your current balance is: " + senderAccount.getBalance() + "\n"+
+                                                                                 "How much would you like to send?");
+
+
             // create transfer
             TransferDTO transferData = new TransferDTO();
             transferData.setFromAccount(senderAccount);
             transferData.setToAccount(receivingAccount);
             transferData.setAmount(transferAmount);
 
-            tenmoService.createTransfer(transferData.getFromAccount(), transferData.getToAccount(), transferData.getAmount());
+            // .compareTo compares 2 amounts and checks if > 0 (so you cant send more than you currently have)
+            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) > 0) {
+                tenmoService.createTransfer(transferData.getFromAccount(), transferData.getToAccount(), transferData.getAmount());
+            } else {
+                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you can't send more than you have. Please try again." );
+            } // .compareTo compares 2 amounts and checks if == 1 (so you cant send 0 or negative)
+            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) == 1){
+                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you entered either zero or a negative number. Please try again." );
+            }
         } else {
             System.out.println("We told you not to select yourself, try again chump.");
         }

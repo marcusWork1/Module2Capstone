@@ -4,6 +4,7 @@ package com.techelevator.tenmo.services;
 import com.techelevator.tenmo.model.Account;
 import com.techelevator.tenmo.model.Tenmo_user;
 import com.techelevator.tenmo.model.Transfer;
+import com.techelevator.tenmo.model.TransferDTO;
 import com.techelevator.tenmo.security.model.UserCredentials;
 import org.springframework.http.ResponseEntity;
 
@@ -71,10 +72,7 @@ public class ConsoleService {
         System.out.print(prompt);
         while (true) {
             try {
-               // System.out.println(Integer.parseInt(scanner.nextLine())); test to see if we are collecting userID entered
                 return Integer.parseInt(scanner.nextLine());
-
-
             } catch (NumberFormatException e) {
                 System.out.println(prompt); // this was "please enter number"
             }
@@ -85,9 +83,7 @@ public class ConsoleService {
         System.out.print(prompt);
         while (true) {
             try {
-                // System.out.println(BigDecimal(scanner.nextLine()));
               return BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
-
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a decimal number.");
             }
@@ -105,13 +101,7 @@ public class ConsoleService {
 
     // add method to display balance
     public void displayBalance(Account account) {
-
-     //   if (account != null) {
             System.out.println("your balance is " + account.getBalance()); // get balance
-     //   } else {
-      //      System.out.println("Account not found");
-     //   }
-
     }
     public void promptForUser(Tenmo_user[] tenmoUser) {
 // display users
@@ -122,7 +112,6 @@ public class ConsoleService {
             System.out.println();
 
     }
-
 //    public void selectAmount(Account account) {
 //        //scanner input to collect ID
 //        scanner.nextLine();
@@ -132,14 +121,6 @@ public class ConsoleService {
 //        System.out.println("Enter an amount to send");
 //        // collect information turn into double
 //    }
-//    public void printReservationMenu(Reservation[] reservations) {
-//        System.out.println("--------------------------------------------");
-//        System.out.println("Reservations");
-//        System.out.println("--------------------------------------------");
-//        System.out.println("0. Exit");
-//        for (Reservation reservation : reservations) {
-//            System.out.println(reservation.toString());
-//        }
-//        System.out.println();
+
     }
 

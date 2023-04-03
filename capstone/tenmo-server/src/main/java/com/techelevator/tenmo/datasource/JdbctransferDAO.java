@@ -44,7 +44,7 @@ public class JDBCtransferDAO implements TransferDAO {
 
         String sql = "INSERT INTO transfer (transfer_type_id, transfer_status_id, account_from, account_to, amount) " +
                 "VALUES ( ?, ?, ?, ?, ?) RETURNING transfer_id;";
-        Integer id = theDatabase.update(sql, Integer.class, transfer.getTransferType(), transfer.getTransferStatus(), transfer.getFromAccount().getId(), transfer.getToAccount().getId(), transfer.getAmount());
+        Integer id = theDatabase.queryForObject(sql, Integer.class, transfer.getTransferType(), transfer.getTransferStatus(), transfer.getFromAccount().getId(), transfer.getToAccount().getId(), transfer.getAmount());
 
         return getTransferById(id);
 
@@ -60,7 +60,7 @@ public class JDBCtransferDAO implements TransferDAO {
     private Transfer mapToRowTransfer(SqlRowSet results){
         Transfer transfer = new Transfer();
         transfer.setTransferId(results.getInt("transfer_id"));
-        transfer.setTransferType(results.getInt("transfer_type"));
+        transfer.setTransferType(results.getInt("transfer_type_id"));
         transfer.setAccount_to(results.getInt("account_to"));
         transfer.setAccountFrom(results.getInt("account_from"));
         transfer.setAmount(results.getBigDecimal("amount"));
