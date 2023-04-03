@@ -112,6 +112,16 @@ public class ConsoleService {
             System.out.println();
 
     }
+    public void promptForTransfer(Transfer[] transfers) {
+// display users
+
+
+        for (Transfer transfer : transfers) {
+            System.out.println(transfer.toString());
+        }
+        System.out.println();
+
+    }
 //    public void selectAmount(Account account) {
 //        //scanner input to collect ID
 //        scanner.nextLine();

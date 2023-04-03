@@ -4,6 +4,7 @@ import com.techelevator.tenmo.datasource.*;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 public class TransferController {
@@ -20,6 +21,11 @@ public class TransferController {
         return transferDAO.createTransfer(aTransfer);
     }
 
+    // get all transfer list
+    @RequestMapping(path = "/transfer/{id}", method = RequestMethod.GET)
+    public List<Transfer> listAllTransfers(@PathVariable int id) {
+        return transferDAO.transferList(id);
+    }
 
 
 

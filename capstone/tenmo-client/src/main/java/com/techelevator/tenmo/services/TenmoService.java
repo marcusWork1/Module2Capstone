@@ -50,7 +50,18 @@ public class TenmoService {
         }
         return aUser;
         }
-
+        public Transfer[] allTransfers(int id) {
+            Transfer[] aTransfer = null;
+            try {
+                ResponseEntity<Transfer[]> response =
+                        theApiServer.exchange(API_BASE_URL + "transfer/" + id,
+                                HttpMethod.GET, makeAuthEntity(), Transfer[].class);
+                aTransfer = response.getBody();
+            } catch (RestClientResponseException | ResourceAccessException e) {
+                BasicLogger.log(e.getMessage());
+            }
+            return aTransfer;
+        }
 
          // create a transfer
     public Transfer createTransfer(Account fromAccount, Account toAccount, BigDecimal amount){
