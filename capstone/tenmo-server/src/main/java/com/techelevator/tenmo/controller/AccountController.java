@@ -14,8 +14,8 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@PermitAll
-//@PreAuthorize("isAuthenticated()")
+//@PermitAll
+@PreAuthorize("isAuthenticated()")
 public class AccountController {
 
     private AccountDAO accountDAO;

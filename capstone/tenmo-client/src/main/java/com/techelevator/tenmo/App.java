@@ -140,20 +140,31 @@ public class App {
 
 
         Tenmo_user[] tenmo_users = tenmoService.allUsers();
+        boolean isValidId = false;
+        int toID;
         if (tenmo_users != null) {
             consoleService.promptForUser(tenmo_users);
         } else {
             consoleService.printErrorMessage();
         }
-       int toID = consoleService.promptForInt("\"Please enter a User ID\" ");
-
+        do {
+            toID = consoleService.promptForInt("\"Please enter a User ID\" ");
+            for(Tenmo_user user: tenmo_users){
+                if(user.getId() == toID){
+                    isValidId = true;
+                    break;
+                }
+            }
+           if(!isValidId){
+               System.out.println("Please enter a valid user id"); }
+        } while(!isValidId);
         // creating a transfer
         if (currentUser.getUser().getId() != toID) {
 
             Account senderAccount = tenmoService.getAccount(currentUser.getUser().getId());
             Account receivingAccount = tenmoService.getAccount(toID);
 
-           BigDecimal transferAmount = consoleService.promptForBigDecimal("your current balance is: " + senderAccount.getBalance() + "\n"+
+           BigDecimal transferAmount = consoleService.promptForBigDecimal("your current balance is: $" + senderAccount.getBalance() + "\n"+
                                                                                  "How much would you like to send?");
 
 
@@ -163,14 +174,16 @@ public class App {
             transferData.setToAccount(receivingAccount);
             transferData.setAmount(transferAmount);
 
+            BigDecimal CompareForNegativeOrZero = BigDecimal.valueOf(0);
+            // .compareTo compares 2 amounts and checks if == 1 (so you cant send 0 or negative)
+            if(transferData.getAmount().compareTo(CompareForNegativeOrZero) <= 0){
+                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you entered either zero or a negative number. Please try again." );
+            }
             // .compareTo compares 2 amounts and checks if > 0 (so you cant send more than you currently have)
-            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) > 0) {
+            else if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) > 0) {
                 tenmoService.createTransfer(transferData.getFromAccount(), transferData.getToAccount(), transferData.getAmount());
             } else {
                 System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you can't send more than you have. Please try again." );
-            } // .compareTo compares 2 amounts and checks if == 1 (so you cant send 0 or negative)
-            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) == 1){
-                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you entered either zero or a negative number. Please try again." );
             }
         } else {
             System.out.println("We told you not to select yourself, try again chump.");
@@ -185,3 +198,14 @@ public class App {
 	}
 
 }
+/*
+ // .compareTo compares 2 amounts and checks if > 0 (so you cant send more than you currently have)
+            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) > 0) {
+                tenmoService.createTransfer(transferData.getFromAccount(), transferData.getToAccount(), transferData.getAmount());
+            } else {
+                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you can't send more than you have. Please try again." );
+            } // .compareTo compares 2 amounts and checks if == 1 (so you cant send 0 or negative)
+            if(transferData.getFromAccount().getBalance().compareTo(transferData.getAmount()) == 1){
+                System.out.println("Sorry " + currentUser.getUser().getUsername() + ", you entered either zero or a negative number. Please try again." );
+            }
+ */

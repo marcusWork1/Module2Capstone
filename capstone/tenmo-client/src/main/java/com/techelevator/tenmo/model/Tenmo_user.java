@@ -45,8 +45,9 @@ public class Tenmo_user {
         @Override
         public String toString() {
             return "Tenmo_user: " +
-                    "user id = " + id +
-                    ", username = '" + username + '\'';
+                    "|user id: " + id +
+                    "| |username:" + username.substring(0,1).toUpperCase() +  "" + username.substring(1) + "|\n"
+                    + "________________________________________________";
         }
 
 }
