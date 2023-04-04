@@ -62,11 +62,11 @@ public class Transfer {
     public String toString() {
         return "Transfer{" +
                 "transferId=" + transferId +
-                ", transferType=" + transferType +
-                ", statusId=" + statusId +
-                ", accountFrom=" + accountFrom +
-                ", account_to=" + account_to +
-                ", amount=" + amount +
+                "\n" + "transferType=" + transferType +
+                "\n" + "statusId=" + statusId +
+                "\n" + "accountFrom=" + accountFrom +
+                "\n" + "account_to=" + account_to +
+                "\n" + "amount=" + amount +
                 '}';
     }
 
