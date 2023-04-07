@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 //@PermitAll
-@PreAuthorize("isAuthenticated()")
+//@PreAuthorize("isAuthenticated()")
 public class AccountController {
 
     private AccountDAO accountDAO;
@@ -38,11 +38,10 @@ public class AccountController {
     public Account getAccount(@PathVariable int id) {
         Account account = accountDAO.getAccountByUserId(id);
         if (account == null) {
-            // throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found.");
         } else {
             return account;
         }
-        return account;
     }
 
     @RequestMapping(path = "/account/{id}", method = RequestMethod.PUT)
